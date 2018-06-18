@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// Figure out how to switch fully from bootstrap to react-bootstrap.
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem, Button } from 'react-bootstrap';
 import './App.css';
 
