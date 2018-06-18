@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-// Figure out how to switch fully from bootstrap to react-bootstrap.
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem, Button } from 'react-bootstrap';
+// Figure out how to switch fully from bootstrap to react-bootstrap later.
+import { NavMenu, About, Footer } from '../index';
 import './App.css';
 
 class App extends Component {
@@ -14,6 +14,7 @@ class App extends Component {
 
   }
   // Bullshit thing for now just to trigger a re-render for simulating going to homepage.
+  // Pass it as a callback, on props, down to NavMenu
   returnHome(event) {
     this.setState({ blank: 'Not blank!!' });
   }
@@ -22,27 +23,10 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <Navbar className="navbar navbar-expand-md navbar-dark bg-dark animated fadeInDown">
-            <a className="navbar-brand" onClick={this.returnHome.bind(this)}>
-              <img src="src/images/Unobtainiumrock-logo.png" height="90px" alt="company logo" />
-            </a>
-
-            {/* Hamburger button thing */}
-            <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span className="navbar-toggler-icon"></span>
-            </button>
-
-            <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-              <ul className="navbar-nav">
-                <Button href="#" className="nav-button" id="about-me">About</Button>
-                <Button href="#" className="nav-button" id="my-portfolio">Portfolio</Button>
-                <Button href="#" className="nav-button" id="contact-me">Contact</Button>
-              </ul>
-            </div>
-
-          </Navbar>
+          <NavMenu onClick={this.returnHome.bind(this)} />
         </header>
+        <About />
+        <Footer />
       </div>
     );
   }
